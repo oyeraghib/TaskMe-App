@@ -4,8 +4,6 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import kotlinx.coroutines.InternalCoroutinesApi
-import kotlinx.coroutines.internal.synchronized
 
 @Database(
     entities = [Task::class],
@@ -14,26 +12,25 @@ import kotlinx.coroutines.internal.synchronized
 )
 abstract class TaskDatabase: RoomDatabase() {
 
-    abstract fun getTaskDao(): TaskDao
+    abstract val getTaskDao: TaskDao
 
     companion object {
 
         @Volatile
-        private var instance: TaskDatabase? = null
-
-        private val LOCK = Any()
-
-        @InternalCoroutinesApi
-        operator fun invoke(context: Context) = instance ?: synchronized(LOCK) {
-            instance ?: buildDatabase(context).also {
-                instance = it
+        private var INSTANCE: TaskDatabase? = null
+        fun getInstance(context: Context): TaskDatabase {
+            synchronized(this) {
+                var instance = INSTANCE
+                if (instance == null) {
+                    instance = Room.databaseBuilder(
+                        context.applicationContext,
+                        TaskDatabase::class.java,
+                        "task_database"
+                    ).build()
+                }
+                return instance
             }
         }
 
-        private fun buildDatabase(context: Context) = Room.databaseBuilder(
-            context.applicationContext,
-            TaskDatabase::class.java,
-            "task_database"
-        ) .build()
     }
 }

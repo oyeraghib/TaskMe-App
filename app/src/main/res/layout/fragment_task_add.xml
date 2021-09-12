@@ -1,21 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.TaskAddFragment"
     >
 
-  <com.google.android.material.floatingactionbutton.FloatingActionButton
-      android:id="@+id/fabTaskAdd"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_gravity="bottom|right"
-      android:layout_margin="16dp"
-      android:src="@drawable/ic_add_black"
+  <data>
+    <variable
+        name="viewModel"
+        type="com.example.taskme.ui.TaskViewModel"
+        />
+  </data>
+  <FrameLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      tools:context=".ui.TaskAddFragment"
+      android:orientation="vertical"
+      android:padding="16dp"
       >
 
+    <EditText
+        android:id="@+id/etTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Title"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:text="@={viewModel.inputTitle}"
+        />
 
-  </com.google.android.material.floatingactionbutton.FloatingActionButton>
+    <EditText
+        android:id="@+id/etTask"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Task Details"
+        android:lines="2"
+        android:textSize="14sp"
+        android:layout_marginTop="64dp"
+        android:minLines="4"
+        android:text="@={viewModel.inputTask}"
+        />
 
-</FrameLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabTaskAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_done_black"
+        android:onClick="@={viewModel.updateOrSaveTask}"
+
+        >
+
+
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+  </FrameLayout>
+</layout>
