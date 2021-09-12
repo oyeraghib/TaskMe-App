@@ -8,7 +8,7 @@
   <fragment
       android:id="@+id/taskHomeFragment"
       android:name="com.example.taskme.ui.TaskHomeFragment"
-      android:label="fragment_task_home"
+      android:label="My Tasks"
       tools:layout="@layout/fragment_task_home" >
     <action
         android:id="@+id/actionHomeToAdd"
@@ -17,7 +17,7 @@
   <fragment
       android:id="@+id/taskAddFragment"
       android:name="com.example.taskme.ui.TaskAddFragment"
-      android:label="fragment_task_add"
+      android:label="Add Tasks"
       tools:layout="@layout/fragment_task_add" >
     <action
         android:id="@+id/actionAddToHome"
