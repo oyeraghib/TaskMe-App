@@ -1,41 +1,29 @@
 package com.example.taskme.ui
 
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import android.app.Application
+import androidx.lifecycle.*
 import com.example.taskme.data.Task
+import com.example.taskme.data.TaskDatabase
 import com.example.taskme.repo.TaskRepo
-import kotlinx.coroutines.Job
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class TaskViewModel(private val repo: TaskRepo) : ViewModel() {
+class TaskViewModel(application: Application) : AndroidViewModel(application){
 
-    private val tasks = repo.getAll
+    private val readAllData: LiveData<List<Task>>
+    private val repository: TaskRepo
 
-
-    val inputTitle = MutableLiveData<String>()
-    val inputTask = MutableLiveData<String>()
-
-//    val updateTaskOrTitle = MutableLiveData<String>()
-//
-//    val deleteTask = MutableLiveData<String>()
-//
-//    fun updateOrSaveTask(){
-//
-//    }
-
-    fun insert(task: Task): Job = viewModelScope.launch {
-        repo.insert(task)
+    init {
+        val taskDao = TaskDatabase.getDatabase(application).taskDao()
+        repository = TaskRepo(taskDao)
+        readAllData = repository.readAllData
     }
 
-    fun update(task: Task): Job = viewModelScope.launch {
-        repo.update(task)
+    fun addTask(task: Task){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.addTask(task)
+        }
     }
-
-    fun delete(task: Task): Job = viewModelScope.launch {
-        repo.delete(task)
-    }
-
-
 
 }
+

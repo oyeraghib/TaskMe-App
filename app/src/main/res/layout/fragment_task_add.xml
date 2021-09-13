@@ -25,7 +25,6 @@
         android:hint="Title"
         android:textStyle="bold"
         android:textSize="16sp"
-        android:text="@={viewModel.inputTitle}"
         />
 
     <EditText
@@ -36,8 +35,6 @@
         android:lines="2"
         android:textSize="14sp"
         android:layout_marginTop="64dp"
-        android:minLines="4"
-        android:text="@={viewModel.inputTask}"
         />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -47,7 +44,6 @@
         android:layout_gravity="bottom|right"
         android:layout_margin="16dp"
         android:src="@drawable/ic_done_black"
-        android:onClick="@={viewModel.updateOrSaveTask}"
 
         >
 
