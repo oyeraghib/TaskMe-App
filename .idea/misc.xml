@@ -4,9 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Android Open Source/TaskMe_App/app/src/main/res/drawable/baseline_done_black_24dp.xml" value="0.2703125" />
-        <entry key="..\:/Android Open Source/TaskMe_App/app/src/main/res/layout/activity_main.xml" value="0.2210144927536232" />
-        <entry key="..\:/Android Open Source/TaskMe_App/app/src/main/res/layout/fragment_task_add.xml" value="0.2210144927536232" />
-        <entry key="..\:/Android Open Source/TaskMe_App/app/src/main/res/layout/fragment_task_home.xml" value="0.2210144927536232" />
+        <entry key="..\:/Android Open Source/TaskMe_App/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Android Open Source/TaskMe_App/app/src/main/res/layout/fragment_task_add.xml" value="0.1634963768115942" />
+        <entry key="..\:/Android Open Source/TaskMe_App/app/src/main/res/layout/fragment_task_home.xml" value="0.1634963768115942" />
       </map>
     </option>
   </component>

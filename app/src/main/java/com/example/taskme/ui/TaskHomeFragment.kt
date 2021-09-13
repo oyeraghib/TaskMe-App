@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.example.taskme.R
 import com.example.taskme.databinding.FragmentTaskHomeBinding
 
@@ -27,9 +28,7 @@ class TaskHomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.fabTaskHome.setOnClickListener{
-
-            val action = TaskHomeFragmentDirections.actionHomeToAdd()
-            Navigation.findNavController(it).navigate(action)
+            findNavController().navigate(R.id.actionHomeToAdd)
         }
     }
 }
