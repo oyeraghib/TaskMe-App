@@ -1,23 +1,18 @@
-package com.example.taskme.ui
+package com.example.taskme.ui.add
 
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
-import android.util.LogPrinter
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.taskme.R
 import com.example.taskme.data.Task
-import com.example.taskme.data.TaskDatabase
 import com.example.taskme.databinding.FragmentTaskAddBinding
-import com.example.taskme.repo.TaskRepo
-import java.security.PrivateKey
+import com.example.taskme.viewmodel.TaskViewModel
 
 
 class TaskAddFragment : Fragment() {

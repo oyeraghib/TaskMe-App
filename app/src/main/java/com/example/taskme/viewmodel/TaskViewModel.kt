@@ -1,4 +1,4 @@
-package com.example.taskme.ui
+package com.example.taskme.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.*
@@ -8,9 +8,9 @@ import com.example.taskme.repo.TaskRepo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class TaskViewModel(application: Application) : AndroidViewModel(application){
+class TaskViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val readAllData: LiveData<List<Task>>
+    val readAllData: LiveData<List<Task>>
     private val repository: TaskRepo
 
     init {
@@ -19,11 +19,12 @@ class TaskViewModel(application: Application) : AndroidViewModel(application){
         readAllData = repository.readAllData
     }
 
-    fun addTask(task: Task){
+    fun addTask(task: Task) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.addTask(task)
         }
     }
+
 
 }
 
