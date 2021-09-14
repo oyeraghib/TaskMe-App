@@ -1,9 +1,10 @@
-package com.example.taskme.data
+package com.example.taskme.database
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.taskme.database.models.Task
 
 @Database(
     entities = [Task::class],

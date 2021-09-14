@@ -10,7 +10,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.taskme.R
-import com.example.taskme.data.Task
+import com.example.taskme.database.models.Task
 import com.example.taskme.databinding.FragmentTaskAddBinding
 import com.example.taskme.viewmodel.TaskViewModel
 
@@ -30,7 +30,7 @@ class TaskAddFragment : Fragment() {
 
         taskViewModel = ViewModelProvider(this).get(TaskViewModel::class.java)
 
-        binding.fabTaskAdd.setOnClickListener{
+        binding.taskAdd.setOnClickListener{
             insertDataToDatabase()
             findNavController().navigate(R.id.actionAddToHome)
         }

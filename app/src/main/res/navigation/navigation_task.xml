@@ -13,6 +13,9 @@
     <action
         android:id="@+id/actionHomeToAdd"
         app:destination="@id/taskAddFragment" />
+    <action
+        android:id="@+id/actionHomeToUpdate"
+        app:destination="@id/taskUpdateFragment" />
   </fragment>
   <fragment
       android:id="@+id/taskAddFragment"
@@ -22,5 +25,17 @@
     <action
         android:id="@+id/actionAddToHome"
         app:destination="@id/taskHomeFragment" />
+  </fragment>
+  <fragment
+      android:id="@+id/taskUpdateFragment"
+      android:name="com.example.taskme.ui.update.TaskUpdateFragment"
+      android:label="Update Task"
+      tools:layout="@layout/fragment_task_update" >
+    <action
+        android:id="@+id/actionUpdateToHome"
+        app:destination="@id/taskHomeFragment" />
+    <argument
+        android:name="currentTask"
+        app:argType="com.example.taskme.database.models.Task" />
   </fragment>
 </navigation>

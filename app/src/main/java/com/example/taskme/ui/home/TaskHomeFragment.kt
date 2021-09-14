@@ -15,7 +15,7 @@ import com.example.taskme.viewmodel.TaskViewModel
 class TaskHomeFragment : Fragment() {
 
     private lateinit var binding: FragmentTaskHomeBinding
-    private val taskListAdapter = TaskHomeRecyclerAdapter()
+    private val taskListAdapter = TaskRecyclerAdapter()
     private lateinit var taskViewModel: TaskViewModel
 
     override fun onCreateView(
@@ -36,6 +36,7 @@ class TaskHomeFragment : Fragment() {
             taskListAdapter.setData(it)
         }
 
+        //On Click FAB
         binding.fabTaskHome.setOnClickListener {
             findNavController().navigate(R.id.actionHomeToAdd)
         }

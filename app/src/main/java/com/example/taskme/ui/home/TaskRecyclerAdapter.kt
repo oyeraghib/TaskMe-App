@@ -2,14 +2,17 @@ package com.example.taskme.ui.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 
 import androidx.recyclerview.widget.RecyclerView
 
-import com.example.taskme.data.Task
+import com.example.taskme.database.models.Task
 import com.example.taskme.databinding.ListItemTaskBinding
+import kotlinx.android.synthetic.main.list_item_task.view.*
 
 
-class TaskHomeRecyclerAdapter : RecyclerView.Adapter<TaskHomeRecyclerAdapter.TaskViewHolder>() {
+class TaskRecyclerAdapter : RecyclerView.Adapter<TaskRecyclerAdapter.TaskViewHolder>() {
 
     private var taskList = emptyList<Task>()
 
@@ -30,6 +33,11 @@ class TaskHomeRecyclerAdapter : RecyclerView.Adapter<TaskHomeRecyclerAdapter.Tas
 
         holder.binding.tvTitle.text = currentTask.title
         holder.binding.tvTask.text = currentTask.task
+
+        holder.itemView.taskItem.setOnClickListener{
+            val action = TaskHomeFragmentDirections.actionHomeToUpdate(currentTask)
+            holder.itemView.findNavController().navigate(action)
+        }
     }
 
     override fun getItemCount(): Int {

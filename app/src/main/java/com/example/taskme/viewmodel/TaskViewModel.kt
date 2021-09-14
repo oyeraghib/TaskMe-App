@@ -2,8 +2,8 @@ package com.example.taskme.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.*
-import com.example.taskme.data.Task
-import com.example.taskme.data.TaskDatabase
+import com.example.taskme.database.models.Task
+import com.example.taskme.database.TaskDatabase
 import com.example.taskme.repo.TaskRepo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -22,6 +22,12 @@ class TaskViewModel(application: Application) : AndroidViewModel(application) {
     fun addTask(task: Task) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.addTask(task)
+        }
+    }
+
+    fun updateTask(task: Task) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.updateTask(task)
         }
     }
 

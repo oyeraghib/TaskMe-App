@@ -1,10 +1,11 @@
-package com.example.taskme.data
+package com.example.taskme.database.models
 
-import androidx.room.ColumnInfo
+import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.android.parcel.Parcelize
 
-
+@Parcelize
 @Entity(tableName = "task_table")
 data class Task(
 
@@ -13,4 +14,4 @@ data class Task(
     val title: String,
     val task: String
 
-)
+): Parcelable
