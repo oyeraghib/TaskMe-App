@@ -1,14 +1,12 @@
 package com.example.taskme.ui.update
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.taskme.R
@@ -42,6 +40,9 @@ class TaskUpdateFragment : Fragment() {
             updateTask()
         }
 
+        //Adding menu for delete
+        setHasOptionsMenu(true)
+
         binding.btnTaskUpdate
         return binding.root
     }
@@ -66,6 +67,31 @@ class TaskUpdateFragment : Fragment() {
 
     private fun checkInput(title: String, task: String): Boolean {
         return !(TextUtils.isEmpty(title) && TextUtils.isEmpty(task))
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_delete, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId == R.id.menu_delete){
+            deleteTask()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun deleteTask() {
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setPositiveButton("Yes"){_,_ ->
+            taskViewModel.deleteTask(args.currentTask)
+            Toast.makeText(requireContext(), "Successfully deleted ${args.currentTask.title}", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.actionUpdateToHome)
+        }
+        builder.setNegativeButton("No"){_,_ ->
+        }
+        builder.setTitle("Delete ${args.currentTask.title}?")
+        builder.setMessage("Are you sure you want to delete ${args.currentTask.task}?")
+        builder.create().show()
     }
 }
 

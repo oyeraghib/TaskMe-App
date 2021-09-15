@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import com.example.taskme.database.models.Task
 import com.example.taskme.database.TaskDao
 
-class TaskRepo(private val taskdao: TaskDao) {
+class TaskRepository(private val taskdao: TaskDao) {
 
    val readAllData: LiveData<List<Task>> = taskdao.getAllTasks()
 
@@ -15,4 +15,12 @@ class TaskRepo(private val taskdao: TaskDao) {
     suspend fun updateTask(task: Task){
         taskdao.updateTask(task)
     }
+
+    suspend fun deleteTask(task: Task){
+        taskdao.deleteTask(task)
+    }
+
+//    suspend fun deleteAllTasks(){
+//        taskdao.deleteAllTasks()
+//    }
 }

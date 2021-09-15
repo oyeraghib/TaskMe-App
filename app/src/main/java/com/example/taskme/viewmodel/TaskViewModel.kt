@@ -4,18 +4,18 @@ import android.app.Application
 import androidx.lifecycle.*
 import com.example.taskme.database.models.Task
 import com.example.taskme.database.TaskDatabase
-import com.example.taskme.repo.TaskRepo
+import com.example.taskme.repo.TaskRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class TaskViewModel(application: Application) : AndroidViewModel(application) {
 
     val readAllData: LiveData<List<Task>>
-    private val repository: TaskRepo
+    private val repository: TaskRepository
 
     init {
         val taskDao = TaskDatabase.getDatabase(application).taskDao()
-        repository = TaskRepo(taskDao)
+        repository = TaskRepository(taskDao)
         readAllData = repository.readAllData
     }
 
@@ -30,6 +30,16 @@ class TaskViewModel(application: Application) : AndroidViewModel(application) {
             repository.updateTask(task)
         }
     }
+
+    fun deleteTask(task: Task){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteTask(task)
+        }
+    }
+
+//    fun deleteAllTasks() = viewModelScope.launch(Dispatchers.IO) {
+//        repository.deleteAllTasks()
+//    }
 
 
 }
