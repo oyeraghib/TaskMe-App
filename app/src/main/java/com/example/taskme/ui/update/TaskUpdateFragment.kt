@@ -90,7 +90,7 @@ class TaskUpdateFragment : Fragment() {
         builder.setNegativeButton("No"){_,_ ->
         }
         builder.setTitle("Delete ${args.currentTask.title}?")
-        builder.setMessage("Are you sure you want to delete ${args.currentTask.task}?")
+        builder.setMessage("Are you sure you want to delete Task ${args.currentTask.title}?")
         builder.create().show()
     }
 }

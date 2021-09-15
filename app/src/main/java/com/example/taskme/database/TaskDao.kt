@@ -20,9 +20,9 @@ interface TaskDao {
     @Delete()
     suspend fun deleteTask(task: Task)
 
-//    //Deleting all tasks
-//    @Delete
-//    suspend fun deleteAllTasks()
+    //Deleting all tasks
+    @Query("delete from task_table")
+    suspend fun deleteAllTasks()
 
     //Reading all task from the table
     @Query("select * from task_table order by id asc")
