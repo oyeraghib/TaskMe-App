@@ -28,6 +28,4 @@ interface TaskDao {
     @Query("select * from task_table order by id asc")
     fun getAllTasks(): LiveData<List<Task>>
 
-
-
 }
