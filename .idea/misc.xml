@@ -13,12 +13,17 @@
         <entry key="..\:/Android Open Source/TaskMe_App/app/src/main/res/layout/fragment_task_add.xml" value="0.1634963768115942" />
         <entry key="..\:/Android Open Source/TaskMe_App/app/src/main/res/layout/fragment_task_home.xml" value="0.1634963768115942" />
         <entry key="..\:/Android Open Source/TaskMe_App/app/src/main/res/layout/fragment_task_update.xml" value="0.2210144927536232" />
-        <entry key="..\:/Android Open Source/TaskMe_App/app/src/main/res/layout/list_item_task.xml" value="0.6" />
+        <entry key="..\:/Android Open Source/TaskMe_App/app/src/main/res/layout/list_item_task.xml" value="0.4" />
         <entry key="..\:/Android Open Source/TaskMe_App/app/src/main/res/menu/menu.xml" value="0.19322916666666667" />
         <entry key="..\:/Android Open Source/TaskMe_App/app/src/main/res/menu/menu_delete.xml" value="0.23854166666666668" />
         <entry key="..\:/Android Open Source/TaskMe_App/app/src/main/res/mipmap-anydpi-v26/ic_app_icon_round.xml" value="0.21822916666666667" />
         <entry key="..\:/Android Open Source/TaskMe_App/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
         <entry key="..\:/Android Open Source/TaskMe_App/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
+        <entry key="..\:/my files/my github projects/TaskMe_App/app/src/main/res/layout/fragment_task_add.xml" value="0.25" />
+        <entry key="..\:/my files/my github projects/TaskMe_App/app/src/main/res/layout/fragment_task_home.xml" value="0.264" />
+        <entry key="..\:/my files/my github projects/TaskMe_App/app/src/main/res/layout/fragment_task_update.xml" value="0.25" />
+        <entry key="..\:/my files/my github projects/TaskMe_App/app/src/main/res/layout/list_item_task.xml" value="0.2222222222222222" />
+        <entry key="..\:/my files/my github projects/TaskMe_App/app/src/main/res/menu/menu_delete.xml" value="0.18518518518518517" />
       </map>
     </option>
   </component>

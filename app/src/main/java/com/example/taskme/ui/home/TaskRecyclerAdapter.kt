@@ -30,9 +30,9 @@ class TaskRecyclerAdapter : RecyclerView.Adapter<TaskRecyclerAdapter.TaskViewHol
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         val currentTask = taskList[position]
 
-
+        holder.binding.tvId.text = currentTask.id.toString()
         holder.binding.tvTitle.text = currentTask.title
-        holder.binding.tvTask.text = currentTask.task
+        holder.binding.tvTaskDetails.text = currentTask.task
 
         holder.itemView.taskItem.setOnClickListener{
             val action = TaskHomeFragmentDirections.actionHomeToUpdate(currentTask)
